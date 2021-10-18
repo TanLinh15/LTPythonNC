@@ -19,6 +19,6 @@ class Country:
         return ("{0} has a population of {1} and its area is {2} square kilometers.".format(self.name,self.population,self.area))
 #cau e:    
     def __repr__(self):
-        return "{0}({1},{2},{3})".format(self.__class__.__name__,self.name,self.population,self.area)
+        return "Country('{0}', {1}, {2})".format(self.name, self.population, self.area)
 
 
