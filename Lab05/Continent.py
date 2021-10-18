@@ -1,18 +1,17 @@
 from Country import Country
-#Cau 2:
-class Continent(Country):
-    def __init__(self,continentName,countryList):
-        self.continentName = continentName
-        self.countryList = countryList[:]
-    
+class Continent:
+    def __init__(self,name,countries):
+        self.name = name
+        self.countries = countries
+
     def total_population(self):
-        populationSum = 0
-        for i in range(len(self.countryList)):
-            populationSum = populationSum + self.countryList[i].population
-        return populationSum
+        sum = 0
+        for country in self.countries:
+            sum += country.population
+        return sum
 
     def __str__(self):
-        output = self.continentName + "\n"
-        for i in self.countryList:
-            output = output + i.__str__() + "\n"
-        return output
+        string = self.name + '\n'
+        for country in self.countries:
+            string += '{} has a population of {} and is {} square km.'.format(country.name, country.population, country.area) + '\n'
+        return string
