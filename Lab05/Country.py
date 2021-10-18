@@ -19,5 +19,17 @@ class Country:
         return ("{0} has a population of {1} and its area is {2} square kilometers.".format(self.name,self.population,self.area))
 #cau e:    
     def __repr__(self):
-        # Sử dụng self.__class__.__name__ to get the object's class name, it returns 'str'
         return "{0}({1},{2},{3})".format(self.__class__.__name__,self.name,self.population,self.area)
+
+#Cau 2:
+class Continent(Country):
+    def __init__(self,continentName,countryList):
+        self.continentName = continentName
+        self.countryList = countryList[:]
+    
+    def total_population(self):
+        populationSum = 0
+        for i in range(len(self.countryList)):
+            populationSum = populationSum + self.countryList[i].population
+        return populationSum
+
