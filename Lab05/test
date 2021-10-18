@@ -1,0 +1,38 @@
+1. 
+```python
+class Country:
+    def __init__(self, name, population, area):
+        self.name = name
+        self.population = population
+        self.area = area
+
+    def is_larger(self, other):
+        if isinstance(other,Country):
+            return self.area > other.area
+        else:
+            print("Both objects need to be from class Country")
+            return -1
+    
+    def population_density(self):
+        return (self.population / self.area)
+
+    def __str__(self):
+        return ("{0} has a population of {1} and its area is {2} square kilometers.".format(self.name,self.population,self.area))
+    
+    def __repr__(self):
+        return "{0}({1},{2},{3})".format(self.__class__.__name__,self.name,self.population,self.area)
+
+class Continent(Country):
+    def __init__(self,continentName,countryList):
+        self.continentName = continentName
+        self.countryList = countryList[:]
+
+canada = Country('Canada', 34482779, 9984670)
+usa = Country('United States of America', 313914040,9826675)
+mexico = Country('Mexico', 112336538, 1943950)
+countries = [canada, usa, mexico]
+north_america = Continent('North America', countries)
+
+for country in north_america.countryList:
+    print(country)
+```
