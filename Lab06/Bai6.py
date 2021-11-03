@@ -20,9 +20,9 @@ class TextEditor:
     def save_click(self):
         data = self.text.get('0.0', tkinter.END)
         filename = dialog.asksaveasfilename(
-         parent=self.parent,
-         filetypes=[('Text', '*.txt')],
-         title='Save as...')
+        parent=self.parent,
+        filetypes=[('Text', '*.txt')],
+        title='Save as...')
         writer = open(filename, 'w')
         writer.write(data)
         writer.close()
